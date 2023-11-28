@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SteamSalesTracker.Controllers;
 
-public class SubmitId
+public class SubmitId : Controller
 {
     [HttpPost("submitId")]
-    public string returnWishlist([FromForm] string steamid)
+    public ContentResult ReturnWishlist([FromForm] string steamid)
     {
-        return steamid + ": This was your SteamID ";
+        return Content($"Your Input was: {steamid}", "text/plain");
     }
 }
